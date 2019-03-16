@@ -35,7 +35,7 @@ const play = function(player){
 			nn.fit( x, y );
 			nn.it = nn.it - y.length > 10 ? nn.it - y.length : 10 ;
 		}
-		let prediction = nn.predict(move).data;
+		let prediction = nn.predict( y[y.length-1] ).data;
 		computer = (prediction.indexOf(Math.max(...prediction)) + 1) % 3;
 	}
 	const win = plays[player+computer];
