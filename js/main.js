@@ -32,7 +32,10 @@ const play = function(player){
 	if( y.length < 3 ){
 		computer = Math.floor( Math.random() * 3 );
 	}else{
-		if( x.length === y.length && lastWinner !== 'computer' ){ console.log(1); nn.fit( x, y ); }
+		if( x.length === y.length && lastWinner !== 'computer' ){ 
+			nn.shuffle( x, y );
+			nn.fit( x, y );
+		}
 		let prediction = nn.predict( lastMove ).data;
 		computer = (prediction.indexOf(Math.max(...prediction)) + 1) % 3;
 	}

@@ -43,7 +43,6 @@ class MLP {
 	fit(inputs, labels){
 		let it = 0;
 		while( it < this.it ){
-			let s = 0;
 			for(let i = 0; i < inputs.length; i++){
 
 				const input = new Matrix( inputs[i].length, 1, inputs[i] );
@@ -57,13 +56,7 @@ class MLP {
 				
 				const outputErrors = new Matrix( labels[i].length, 1, labels[i] );
 				
-				outputErrors.subtract( outputs );
-				
-				
-				for(let i = 0; i < outputErrors.data.length; i++){
-					s += outputErrors.data[i] * outputErrors.data[i];
-				}
-				
+				outputErrors.subtract( outputs );	
 				
 				outputs.foreach( this.dActivation );
 				outputs.hadamard( outputErrors );
@@ -98,8 +91,6 @@ class MLP {
 
 			}
 			it++;
-			//if( it % 100 == 0 )
-				//console.log( Math.sqrt(s) );
 		};
 	}
 
