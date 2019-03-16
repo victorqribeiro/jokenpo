@@ -1,0 +1,23 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial,Helvetica Neue,Helvetica,sans-serif; 
+}
+
+canvas {
+  display: block;
+}
+
+div, button {
+	text-align: center;
+	min-width: 80px;
+	height: 50px;
+}
+
+.row {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	height: 33%;
+}
