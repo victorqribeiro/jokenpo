@@ -1,6 +1,6 @@
 # JoKenPo
 
-Can a [Neural Network](https://github.com/victorqribeiro/MLP) predict your next move on a game of[rock, paper, scissors](https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors)?
+Can a [Neural Network](https://github.com/victorqribeiro/MLP) predict your next move on a game of [rock, paper, scissors](https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors)?
 
 Play it [here](https://victorribeiro.com/jokenpo)
 
