@@ -19,6 +19,7 @@ const y = [];
 let i = 0,
 		middle,
 		lastWinner,
+		lastMove,
 		scoreResults;
 
 const nn = new MLP( 3, 3, 3, 0.001, 5000 );
@@ -35,13 +36,14 @@ const play = function(player){
 			nn.fit( x, y );
 			nn.it = nn.it - y.length > 10 ? nn.it - y.length : 10 ;
 		}
-		let prediction = nn.predict( y[y.length-1] ).data;
+		let prediction = nn.predict( lastMove ).data;
 		computer = (prediction.indexOf(Math.max(...prediction)) + 1) % 3;
 	}
 	const win = plays[player+computer];
 	lastWinner = player === computer || win === undefined ? 'tie' : win === player ? 'player' : 'computer';
 	score[lastWinner]++;
 	updateScore(player, computer, lastWinner);
+	lastMove = move;
 }
 
 const updateScore = function(p, c, w){

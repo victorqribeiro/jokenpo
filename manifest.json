@@ -1,7 +1,7 @@
 {
-  "name": " ",
-  "short_name": " ",
-  "description": " ",
+  "name": "JoKenPo",
+  "short_name": "JoKenPo",
+  "description": "Can a neural network predict your next move on rock, paper and scissors?",
   "start_url": "index.html",
   "display": "standalone",
   "orientation": "portrait",

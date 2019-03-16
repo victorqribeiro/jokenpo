@@ -1,6 +1,6 @@
 if('serviceWorker' in navigator) {
   navigator.serviceWorker
-           .register('/joKePo/sw.js', {scope: './'})
+           .register('/jokenpo/sw.js', {scope: './'})
            .then(response => response)
            .catch(reason => reason);
 }

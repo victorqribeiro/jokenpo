@@ -9,7 +9,7 @@ const filesToCache = [
       './manifest.json'
  ];
 
-const staticCacheName = 'joKePo-v1';
+const staticCacheName = 'jokenpo-v1';
 
 self.addEventListener('install', event => {
   event.waitUntil(
