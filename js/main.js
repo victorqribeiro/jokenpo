@@ -22,7 +22,7 @@ let i = 0,
 		lastMove,
 		scoreResults;
 
-const nn = new MLP( 3, 3, 3, 0.001, 5000 );
+const nn = new MLP( 3, 3, 3, 0.1, 300 );
 
 const play = function(player){
 	const move = Array(3).fill(0);
@@ -32,10 +32,7 @@ const play = function(player){
 	if( y.length < 3 ){
 		computer = Math.floor( Math.random() * 3 );
 	}else{
-		if( x.length == y.length && lastWinner == 'player' ){
-			nn.fit( x, y );
-			nn.it = nn.it - y.length > 10 ? nn.it - y.length : 10 ;
-		}
+		if( x.length === y.length && lastWinner !== 'computer' ){ console.log(1); nn.fit( x, y ); }
 		let prediction = nn.predict( lastMove ).data;
 		computer = (prediction.indexOf(Math.max(...prediction)) + 1) % 3;
 	}
@@ -44,6 +41,7 @@ const play = function(player){
 	score[lastWinner]++;
 	updateScore(player, computer, lastWinner);
 	lastMove = move;
+	console.log( lastWinner )
 }
 
 const updateScore = function(p, c, w){
