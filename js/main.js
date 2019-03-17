@@ -1,5 +1,5 @@
 
-const names = [ "Rock", "Paper", "Scissor" ];
+const names = [ "Rock", "Paper", "Scissors" ];
 
 const plays = {
 	1: 1,
@@ -55,7 +55,6 @@ const updateScore = function(p, c, w){
 }
 
 const init = function(){
-
 	const top = document.createElement('div');
 	top.className = "row";
 	scoreResults = {};
@@ -69,10 +68,9 @@ const init = function(){
 	middle.className = "row";
 	const bottom = document.createElement('div');
 	bottom.className = "row";
-	const buttons = ['rock', 'paper', 'scissor'];
-	for(let i = 0; i < buttons.length; i++){
+	for(let i = 0; i < names.length; i++){
 		const btn = document.createElement('button');
-		btn.innerText = buttons[i];
+		btn.innerText = names[i];
 		btn.addEventListener('click', ()=>play(i) );
 		bottom.appendChild( btn );
 	}
