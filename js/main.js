@@ -17,6 +17,7 @@ const x = [];
 const y = [];
 
 let i = 0,
+		tmpMove = [],
 		middle,
 		lastWinner,
 		lastMove,
@@ -27,12 +28,16 @@ const nn = new MLP( 3, 3, 3, 0.1, 300 );
 const play = function(player){
 	const move = Array(3).fill(0);
 	move[player] = 1;
-	if( !(i++%2) ) x.push( move ); else y.push( move );
+	tmpMove.push( move );
+	if( tmpMove.length == 2 ){
+		x.push( tmpMove.shift() );
+		y.push( tmpMove[0] );
+	}
 	let computer;
 	if( y.length < 3 ){
 		computer = Math.floor( Math.random() * 3 );
 	}else{
-		if( x.length === y.length && lastWinner !== 'computer' ){ 
+		if( lastWinner !== 'computer' ){ 
 			nn.shuffle( x, y );
 			nn.fit( x, y );
 		}
@@ -44,7 +49,6 @@ const play = function(player){
 	score[lastWinner]++;
 	updateScore(player, computer, lastWinner);
 	lastMove = move;
-	console.log( lastWinner )
 }
 
 const updateScore = function(p, c, w){
