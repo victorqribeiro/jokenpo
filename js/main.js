@@ -84,6 +84,7 @@ const init = function(){
 	document.body.appendChild( top );
 	document.body.appendChild( middle );
 	document.body.appendChild( bottom );
+
 	const keys = ['j', 'k', 'l'];
 	document.addEventListener('keydown', e => {
 		const i = keys.indexOf(e.key);
@@ -91,13 +92,17 @@ const init = function(){
 			buttons[i].focus();
 			play(i);
 		}
+		if(e.key === 'Escape'){
+			tip.classList.add('hidden');
+		}
 	})
-	const tip = document.createElement('div');
-	tip.classList.add('tip');
+	const tip = document.querySelector('.tip');
 	tip.innerHTML = 'You can play using the keyboard:<br>' + keys.map(
 		(key, i) => key + '→' + names[i]
 	).join(', ');
-	document.body.appendChild(tip);
+	tip.addEventListener('click', ()=>{
+		tip.classList.toggle('hidden');
+	})
 }
 
 init();

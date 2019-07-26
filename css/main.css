@@ -68,20 +68,34 @@ button:before {
 .tip {
 	position: fixed;
 	top: 0;
-	left: 50%;
-	transform: translateX(-50%);
-	padding: 2rem;
+	right: 0;
+	padding: 1.2rem;
 	background: #a5d6a7;
 	border: 2px solid #43a047;
-	border-radius: 1rem;
-	margin: 1rem 0;
+	border-radius: 1.5rem;
+	margin: 1rem;
 	font-size: 1.2rem;
 	width: 80%;
-	opacity: 0;
-	animation: 10s hide-tip;
+	height: auto;
+	transition: all .3s ease;
+	white-space: pre;
+	overflow: hidden;
+	cursor: pointer;
 }
-@keyframes hide-tip {
-	0% {opacity: 1;}
-	97% {opacity: 1;}
-  100% {opacity: 0;}
+.tip:after {
+	content: 'x';
+	position: absolute;
+	top: .6rem;
+	right: .9rem;
+	color: #333;
+}
+.hidden{
+	background: #ccc;
+	border-color: #999;
+	color: transparent;
+	width: 2.4rem;
+	height: 2.4rem;
+}
+.hidden:after{
+	content: '?';
 }
