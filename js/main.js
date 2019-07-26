@@ -37,12 +37,12 @@ const play = function(player){
 	if( y.length < 3 ){
 		computer = Math.floor( Math.random() * 3 );
 	}else{
+                let prediction = nn.predict( lastMove ).data;
+		computer = (prediction.indexOf(Math.max(...prediction)) + 1) % 3;
 		if( lastWinner !== 'computer' ){ 
 			nn.shuffle( x, y );
 			nn.fit( x, y );
 		}
-		let prediction = nn.predict( lastMove ).data;
-		computer = (prediction.indexOf(Math.max(...prediction)) + 1) % 3;
 	}
 	const win = plays[player+computer];
 	lastWinner = player === computer || win === undefined ? 'tie' : win === player ? 'player' : 'computer';
