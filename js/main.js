@@ -92,6 +92,12 @@ const init = function(){
 			play(i);
 		}
 	})
+	const tip = document.createElement('div');
+	tip.classList.add('tip');
+	tip.innerHTML = 'You can play using the keyboard:<br>' + keys.map(
+		(key, i) => key + '→' + names[i]
+	).join(', ');
+	document.body.appendChild(tip);
 }
 
 init();

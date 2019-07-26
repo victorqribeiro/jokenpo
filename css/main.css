@@ -64,3 +64,24 @@ button:before {
 	background-position: 0% -4%;
 	width: 80%;
 }
+
+.tip {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 2rem;
+	background: #a5d6a7;
+	border: 2px solid #43a047;
+	border-radius: 1rem;
+	margin: 1rem 0;
+	font-size: 1.2rem;
+	width: 80%;
+	opacity: 0;
+	animation: 10s hide-tip;
+}
+@keyframes hide-tip {
+	0% {opacity: 1;}
+	97% {opacity: 1;}
+  100% {opacity: 0;}
+}
