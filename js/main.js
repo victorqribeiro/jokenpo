@@ -74,7 +74,8 @@ const init = function(){
 	bottom.className = "row";
 	for(let i = 0; i < names.length; i++){
 		const btn = document.createElement('button');
-		btn.innerText = names[i];
+		btn.classList.add(names[i].toLowerCase())
+		btn.title = names[i];
 		btn.addEventListener('click', ()=>play(i) );
 		bottom.appendChild( btn );
 	}
