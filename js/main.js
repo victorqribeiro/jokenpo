@@ -37,7 +37,7 @@ const play = function(player){
 	if( y.length < 3 ){
 		computer = Math.floor( Math.random() * 3 );
 	}else{
-                let prediction = nn.predict( lastMove ).data;
+		let prediction = nn.predict( lastMove ).data;
 		computer = (prediction.indexOf(Math.max(...prediction)) + 1) % 3;
 		if( lastWinner !== 'computer' ){ 
 			nn.shuffle( x, y );
@@ -72,15 +72,37 @@ const init = function(){
 	middle.className = "row";
 	const bottom = document.createElement('div');
 	bottom.className = "row";
+	buttons = [];
 	for(let i = 0; i < names.length; i++){
 		const btn = document.createElement('button');
-		btn.innerText = names[i];
+		btn.classList.add(names[i].toLowerCase())
+		btn.title = names[i];
 		btn.addEventListener('click', ()=>play(i) );
 		bottom.appendChild( btn );
+		buttons.push(btn);
 	}
 	document.body.appendChild( top );
 	document.body.appendChild( middle );
 	document.body.appendChild( bottom );
+
+	const keys = ['j', 'k', 'l'];
+	document.addEventListener('keydown', e => {
+		const i = keys.indexOf(e.key);
+		if(i > -1) {
+			buttons[i].focus();
+			play(i);
+		}
+		if(e.key === 'Escape'){
+			tip.classList.add('hidden');
+		}
+	})
+	const tip = document.querySelector('.tip');
+	tip.innerHTML = 'You can play using the keyboard:<br>' + keys.map(
+		(key, i) => key + '→' + names[i]
+	).join(', ');
+	tip.addEventListener('click', ()=>{
+		tip.classList.toggle('hidden');
+	})
 }
 
 init();

@@ -1,23 +1,101 @@
-html, body {
+* {
+	box-sizing: border-box;
+}
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: Arial,Helvetica Neue,Helvetica,sans-serif; 
+	font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+	font-size: 62.5%; /* Fallback */
 }
 
-canvas {
-  display: block;
+@media (min-height: 400px) and (min-width: 400px) and (orientation : landscape) {
+	html, body {font-size: 2.5vh;}
 }
 
-div, button {
+@media (min-height: 400px) and (min-width: 400px) and (orientation : portrait) {
+	html, body {font-size: 2.5vw;}
+}
+
+div, button{
 	text-align: center;
-	min-width: 80px;
-	height: 50px;
+	font-size: 1.6rem;
 }
 
 .row {
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 	height: 33%;
+}
+
+button {
+	position: relative;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	width: 8rem;
+	height: 5rem;
+}
+button:before {
+	content:'';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 100%;
+	background: url('../favicon.png') no-repeat;
+}
+.rock:before {
+	background-size: auto 240%;
+	background-position: 100% 20%;
+	width: 60%;
+}
+
+.paper:before {
+	background-size: auto 205%;
+	background-position: 37% 103%;
+	width: 72%;
+}
+
+.scissors:before {
+	background-size: auto 240%;
+	background-position: 0% -4%;
+	width: 80%;
+}
+
+.tip {
+	position: fixed;
+	top: 0;
+	right: 0;
+	padding: 1.2rem;
+	background: #a5d6a7;
+	border: 2px solid #43a047;
+	border-radius: 1.5rem;
+	margin: 1rem;
+	font-size: 1.2rem;
+	width: 80%;
+	height: auto;
+	transition: all .3s ease;
+	white-space: pre;
+	overflow: hidden;
+	cursor: pointer;
+}
+.tip:after {
+	content: 'x';
+	position: absolute;
+	top: .6rem;
+	right: .9rem;
+	color: #333;
+}
+.hidden{
+	background: #ccc;
+	border-color: #999;
+	color: transparent;
+	width: 2.4rem;
+	height: 2.4rem;
+}
+.hidden:after{
+	content: '?';
 }

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="theme-color" content="#FFF"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta property="og:url" content=" " />
 	<meta property="og:type" content=" " />
@@ -13,6 +13,7 @@
 	<meta property="og:image" content=" " />
 	<meta property="og:image:width" content="512" />
 	<meta property="og:image:height" content="512" />
+	<meta name="Description" content="Can a neural network predict your next move on a game of rock, paper and scissor?">
 	<title> joKePo </title>
 	<link rel="manifest" href="manifest.json" />
 	<link rel="stylesheet" href="css/main.css" />
@@ -20,9 +21,13 @@
 	<link rel="apple-touch-icon" href="favicon.png" />
 </head>
 <body>
+	<div class="tip hidden"></div>
 	<script src="js/aux.js"></script>
 	<script src="js/Matrix2.js"></script>
 	<script src="js/MLP.js"></script>
 	<script src="js/main.js"></script>
+	<noscript>
+		<div class="tip">To play this game, you need to enable javascript.</div>
+	</noscript>
 </body>
 </html>
