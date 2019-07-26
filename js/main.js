@@ -29,7 +29,7 @@ const play = function(player){
 	const move = Array(3).fill(0);
 	move[player] = 1;
 	tmpMove.push( move );
-	if( tmpMove.length == 2 ){
+	if( tmpMove.length > 2 ){
 		x.push( tmpMove.shift() );
 		y.push( tmpMove[0] );
 	}
